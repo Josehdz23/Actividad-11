@@ -8,7 +8,9 @@ def quick_sort(lista):
     mayores = [x for x in lista[1:] if x > pivote]
 
     return quick_sort(menores) + iguales + quick_sort(mayores)
+
 nombres = []
+
 def main():
     while True:
         try:
@@ -18,6 +20,7 @@ def main():
                 nombres.append(nombre)
             resultado = quick_sort(nombres)
             print(resultado)
+            break
         except Exception as ex:
             print(f" Error reintente: {ex}")
 main()

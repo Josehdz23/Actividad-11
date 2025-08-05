@@ -112,8 +112,20 @@ def registrar_Estudiantes():
         except Exception as ex:
             print(f"\nOcurrió un error: {ex}, reintente")
 
+def quick_sort(lista):
+    if len(lista) <= 1:
+        return lista
+
+    pivote = lista[0]
+    menores = [x for x in lista[1:] if x < pivote]
+    iguales = [x for x in lista if x == pivote]
+    mayores = [x for x in lista[1:] if x > pivote]
+
+    return quick_sort(menores) + iguales + quick_sort(mayores)
+
 def mostrar_estudiantes():
     if estudiantes:
+        quick_sort(estudiantes)
         for clave, datos in estudiantes.items():
             sumaTotal = 0
             noCursos = len(estudiantes[clave]["Cursos"])
